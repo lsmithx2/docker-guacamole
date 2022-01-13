@@ -9,7 +9,7 @@
 ARG DEBIAN_VERSION=buster
 ##########################
 ### Get Guacamole Server
-ARG GUAC_VER=1.3.0
+ARG GUAC_VER=1.4.0
 FROM guacamole/guacd:${GUAC_VER} AS guacd
 
 ##########################################
@@ -17,7 +17,7 @@ FROM guacamole/guacd:${GUAC_VER} AS guacd
 ### Use official maven image for the build
 FROM maven:3-jdk-8 AS guacamole
 
-ARG GUAC_VER=1.3.0
+ARG GUAC_VER=1.4.0
 
 ### Use args to build radius auth extension such as
 ### `--build-arg BUILD_PROFILE=lgpl-extensions`
@@ -58,7 +58,7 @@ ARG SERVER_PREFIX_DIR=/usr/local/guacamole
 ARG CLIENT_PREFIX_DIR=/opt/guacamole
 
 ### Set correct environment variables.
-ENV HOME=/fsguac
+ENV HOME=/config
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LC_ALL=C.UTF-8
 ENV LANG=en_GB.UTF-8
@@ -123,7 +123,7 @@ RUN rm -Rf /var/lib/tomcat9/webapps/ROOT                                        
 
 EXPOSE 8080
 
-VOLUME ["/fsguac"]
+VOLUME ["/config"]
 
 CMD [ "/etc/firstrun/firstrun.sh" ]
 
