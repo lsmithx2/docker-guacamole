@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag lsmithx2/docker-guacamole:$(date +%s)
+      run: docker build . --file Dockerfile --tag lsmithx2/guacamole:$(date +%s)
       
     - name: Docker Push
-      run: docker push lsmithx2/docker-guacamole
+      run: docker push lsmithx2/guacamole
