@@ -31,7 +31,7 @@ Create your guacamole fsguac directory (which will contain both the properties f
 To run using MariaDB for user authentication, launch with the following:
 
 ```
-docker run -d -v /your-fsguac-location:/fsguac -p 8080:8080 -e OPT_MYSQL=Y lsmithx2/guacamole
+docker run -d -v /your-volume:/config -p 8080:8080 -e OPT_MYSQL=Y lsmithx2/guacamole
 ```
 
 Browse to ```http://server-ip:8080``` and login with user and password `guacadmin`
